@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="templates/css/style.css">
+    <title>Главная страница</title>
+</head>
+<body>
+    <script>var exports = {};</script>
+    <script type="module" src="/templates/src/js/callbacks.js"></script>
+    <script type="module" src="/templates/src/js/fillingOutTheTable.js"></script>
+    <script type="module" src="/templates/src/js/serverService.js"></script>
+    <script type="module" src="/templates/src/js/main.js"></script>
+
+    <div class="table-container">
+        <div class="buttons">
+            <div class="button"><button id="back-button">Назад</button></div>
+            
+            <div class="button">
+                <button id="ascButton">По возрастанию</button>
+            </div>
+            <div class="button">
+                <button id="descButton">По убыванию</button>
+            </div> 
+
+        </div>
+        <table id="data-table">
+            <thead id="table-head">
+                <tr>
+                    <td>№</td>
+                    <td>Название файла</td>
+                    <td>Размер файла(байты)</td>
+                    <td>Тип файла</td>
+                </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+        </table>
+    </div>
+</body>
+</html>

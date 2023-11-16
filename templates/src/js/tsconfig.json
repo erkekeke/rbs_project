@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+  
+    "target": "es2016",                                 
+    "module": "esnext",       
+    "moduleResolution": "node",                  
+
+    "esModuleInterop": true,                               /* Disable resolving symlinks to their realpath. This correlates to the same flag in node. */
+    "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
+
+    "strict": true,                                      /* Skip type checking .d.ts files that are included with TypeScript. */
+    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+  }
+}
