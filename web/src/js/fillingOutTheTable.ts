@@ -23,6 +23,16 @@ function convertBytes(sizeInBytes: number): string {
 
 
 export function createTable(data: any[], path: string): void {
+  // const loaderContainer = document.getElementById('loader-contaier')
+  // const loader = document.createElement('img')
+  // loader.src = 'loading.gif'
+  
+  // if(loaderContainer) {
+  //   loaderContainer.appendChild(loader)
+    
+  //   loaderContainer.style.display = 'block'
+  // }
+  
   const tableBody = document.getElementById('table-body') as HTMLTableElement;
   const backButton: HTMLElement | null = document.getElementById('back-button');
   const ascButton: HTMLElement | null = document.getElementById('ascButton');
@@ -73,4 +83,8 @@ export function createTable(data: any[], path: string): void {
       }
     }
   });
+
+  // if (loaderContainer) {
+  //   loaderContainer.style.display = 'none';
+  // }
 }
