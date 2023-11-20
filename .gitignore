@@ -1,7 +1,8 @@
-# Игнорирование папки bin
-bin
-
 # Игнорирование бинарного файла
 rbs_project
+*.bin
 
-node_modules
+# Директория с bandle
+dist
+
+bin

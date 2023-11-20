@@ -12,11 +12,13 @@ table {
 }
 
 .table-container {
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     max-height: 600px;
     overflow: auto;
+    place-self: center;
+    width: fit-content;
 }
 
 .loader-container {
@@ -25,15 +27,6 @@ table {
     position: absolute;
     top: 300px;
 }
-
-/*display: flex;
-overflow: auto;
-top: -200px;
-right: 0;
-bottom: 0;
-left: 0;
-margin: auto;
-*/
 
 tbody td {
     width: 100px; /* Устанавливаем ширину td в 100 пикселей */
@@ -46,9 +39,12 @@ thead {
     text-align: center;
 }
 
+.folder-row {
+    cursor: pointer;
+}
+
 td, th {
     width: 200px;
-    cursor: pointer;
     position: relative; /* Необходимо для позиционирования псевдоэлемента */
     padding: 8px; /* Пример отступов внутри ячейки */
 }

@@ -1,9 +1,13 @@
 {
   "compilerOptions": {
-  
-    "target": "es2016",                                 
-    "module": "esnext",       
-    "moduleResolution": "node",                  
+
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": true,
+    "moduleResolution": "node",                 
 
     "esModuleInterop": true,                               /* Disable resolving symlinks to their realpath. This correlates to the same flag in node. */
     "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */

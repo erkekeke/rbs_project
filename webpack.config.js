@@ -1,35 +1,38 @@
-// webpack.config.js
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: './web/src/js/main.js'
-    // Добавьте другие точки входа, если необходимо
+    index: './web/src/index.ts',
   },
   output: {
-    filename: '[name].bundle.js',
+    filename: 'bundle.[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
   },
+  resolve: {
+    extensions: ['.ts', '.js'], // Разрешение импорта файлов ts и js без указания расширения
+  },
+  module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+    ],
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'styles.css',
+    }),
+    new HtmlWebpackPlugin({
+      template: './web/html/index.html',
+      filename: 'index.html',
+    }),
+  ],
 };
-
-// const path = require('path');
-
-// module.exports = {
-//   entry: './web/src/js/main.ts', // Путь к вашему TypeScript файлу
-//   output: {
-//     filename: 'bundle.js',
-//     path: path.resolve(__dirname, 'dist'),
-//   },
-//   module: {
-//     rules: [
-//       {
-//         test: /\.tsx?$/,
-//         use: 'ts-loader',
-//         exclude: /node_modules/,
-//       },
-//     ],
-//   },
-//   resolve: {
-//     extensions: ['.tsx', '.ts', '.js'],
-//   },
-// };
