@@ -1,0 +1,85 @@
+body {
+    background-color: black;
+    margin: 0;
+}
+
+
+/*  Таблица    */
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    border: 3px solid #ffffff;
+}
+
+tbody td {
+    width: 100px; /* Устанавливаем ширину td в 100 пикселей */
+    text-align: center;
+}
+
+thead {
+    color: black;
+    background-color: white;
+    text-align: center;
+}
+
+td, th {
+    width: 200px;
+    cursor: pointer;
+    position: relative; /* Необходимо для позиционирования псевдоэлемента */
+    padding: 8px; /* Пример отступов внутри ячейки */
+}
+
+  
+td::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* Высота границы */
+    background-color: white; /* Цвет границы */
+}
+
+
+/*  DIV  */
+div {
+    background-color: black;
+    color: rgb(255, 255, 255);
+}
+
+.table-container {
+    width: 1000px;  /*Увеличиваем ширину контейнера для поддержки широких кнопок*/
+    position: absolute;
+    max-height: 400px;
+    overflow: auto;
+    top: -200px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+
+.buttons {
+    text-align: center;
+    position: absolute;
+    top: 550px;
+    left: 490px;
+
+}
+
+button {
+    width: 120px;
+    height: 30px;
+}
+
+.button {
+    text-align: center;
+    display: inline-block; /* Используем inline-block для кнопок, чтобы они шли одна за другой */
+    margin-right: 5px; /* Добавляем небольшой отступ между кнопками */
+}
+
+.main {
+    top: 100px;
+    display: inline-block;
+}
