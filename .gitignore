@@ -6,3 +6,5 @@ rbs_project
 dist
 
 bin
+
+node_modules
