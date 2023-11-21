@@ -84,7 +84,8 @@ func DirHandler(res http.ResponseWriter, req *http.Request) {
 // indexHandler() Обрабатывает рут: /
 func IndexHandler(res http.ResponseWriter, req *http.Request) {
 
-	htmlPath := path.Join("web", "html", "index.html")
+	// htmlPath := path.Join("web", "html", "index.html")
+	htmlPath := path.Join("dist", "index.html")
 	tpl, err := template.ParseFiles(htmlPath)
 	if err != nil {
 		http.Error(res, err.Error(), http.StatusInternalServerError)

@@ -11,22 +11,31 @@ table {
     border: 3px solid #ffffff;
 }
 
+/* .preloader {
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 1001;
+} */
+
+#loader{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: auto;
+}
+
 .table-container {
     display: grid;
-    justify-content: center;
-    align-items: center;
+    width: 200vh;
     max-height: 600px;
     overflow: auto;
     place-self: center;
-    width: fit-content;
-}
-
-.loader-container {
-    height: 100px;
-    width: 100px;
-    position: absolute;
-    top: 300px;
-}
+    justify-content: center;
+}  
 
 tbody td {
     width: 100px; /* Устанавливаем ширину td в 100 пикселей */
@@ -81,4 +90,5 @@ div {
     text-align: center;
     display: inline-block; /* Используем inline-block для кнопок, чтобы они шли одна за другой */
     margin-right: 5px; /* Добавляем небольшой отступ между кнопками */
+    margin-left: 5px;
 }

@@ -1,4 +1,6 @@
 import { getData } from "./getData";
+import { Loader } from "./loader";
+
 
 interface File {
   fileName: string;
@@ -30,7 +32,7 @@ function convertBytes(sizeInBytes: number): string {
 
 
 export function createTable(data: File[], path: string): void {
-  
+  Loader.hide()
   const tableBody = document.getElementById('table-body') as HTMLTableElement;
   const backButton: HTMLElement | null = document.getElementById('back-button');
   const ascButton: HTMLElement | null = document.getElementById('ascButton');
@@ -46,6 +48,7 @@ export function createTable(data: File[], path: string): void {
       getData('asc', path);
     } else {
       alert("Ошибка. Задана неверная директория");
+      Loader.hide()
     }
   };
 

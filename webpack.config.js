@@ -27,12 +27,10 @@ module.exports = {
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'styles.css',
-    }),
     new HtmlWebpackPlugin({
       template: './web/html/index.html',
       filename: 'index.html',
+      publicPath: 'dist/',
     }),
   ],
 };

@@ -14,7 +14,7 @@ func StartServer() {
 	}
 
 	// Говорим маршрутизатору использовать папки для всех путей с префиксами этих папок
-	directories := []string{"web", "src", "css", "html", "backend", "dist"}
+	directories := []string{"web", "src", "css", "html", "backend", "dist", "gifs"}
 
 	for _, dir := range directories {
 		fs := http.FileServer(http.Dir(dir))

@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/web/css/style.css">
-    <script type="module" src="../dist/bundle.[contenthash].js"></script>
     <title>Main Page</title>
 </head>
 <body>  
+    <div id="preloader" class="preloader">
+        <img src="/web/src/gifs/preloader.gif" alt="Загрузка" id="loader">
+    </div>
     <nav>
         <div class="buttons">
             <button class="button" id="back-button">Назад</button>
@@ -16,7 +18,6 @@
         </div>
     </nav>
     <main>
-        <div></div>
         <div class="table-container">   
             <table id="data-table">
                 <thead id="table-head">
@@ -29,8 +30,6 @@
                 </thead>
                 <tbody id="table-body"></tbody>
             </table>
-
-            <div class="loader-container"></div>
         </div>
     </main>
 </body>
