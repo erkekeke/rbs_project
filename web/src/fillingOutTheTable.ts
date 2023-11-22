@@ -1,4 +1,4 @@
-import { getData } from "./getData";
+import { getDir } from "./getDir";
 import { Loader } from "./loader";
 
 
@@ -11,7 +11,7 @@ interface File {
 
 export function dirClick(fileName: string, path: string): void {
   path += fileName + '/';
-  getData('asc', path);
+  getDir('asc', path);
 }
 
 function convertBytes(sizeInBytes: number): string {
@@ -45,7 +45,7 @@ export function createTable(data: File[], path: string): void {
   backButton.onclick = function() {
     if (path !== "") {
       path = path.substring(0, path.slice(0, -1).lastIndexOf('/') + 1);
-      getData('asc', path);
+      getDir('asc', path);
     } else {
       alert("Ошибка. Задана неверная директория");
       Loader.hide()
@@ -53,16 +53,21 @@ export function createTable(data: File[], path: string): void {
   };
 
   ascButton.onclick = function() {
-    getData('asc', path);
+    getDir('asc', path);
   };
 
   descButton.onclick = function() {
-    getData('desc', path);
+    getDir('desc', path);
   };
 
   tableBody.innerHTML = "";
 
   let i = 1;
+
+  if(data == null) {
+    alert('Ошибка. Директории выше не существует. Обновите страницу')
+  }
+
   data.forEach((file) => {
     if (file.deepIndex == 0) {
       let row = tableBody.insertRow();

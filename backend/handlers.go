@@ -5,11 +5,12 @@ import (
 	"encoding/json"
 	"fmt"
 	"html/template"
+	"log"
 	"net/http"
 	"os"
+	"path"
 	"sort"
 	"sync"
-	"path"
 )
 
 // DirHandler() Обрабатывает рут: /dir
@@ -38,6 +39,9 @@ func DirHandler(res http.ResponseWriter, req *http.Request) {
 	var unsortedFiles []File
 	response := Response{500, "Ошибка при конвертации массива в json-формат", unsortedFiles}
 
+	// Структура для отправки данных на PHP
+	var postData File
+
 	// Создание контекста для выхода при сканировании
 	ctx, cancel := context.WithCancel(req.Context())
 	defer cancel()
@@ -54,6 +58,9 @@ func DirHandler(res http.ResponseWriter, req *http.Request) {
 	wg.Wait()
 
 	if len(response.Data) > 0 {
+		postData = response.Data[len(response.Data)-1]
+		fmt.Println(postData.FileName, postData.ElapsedTime, postData.CurrentDate)
+
 		response.Data = response.Data[:len(response.Data)-1]
 	}
 	// Сортировка в зависимости от её типа(desc, asc)
@@ -66,19 +73,22 @@ func DirHandler(res http.ResponseWriter, req *http.Request) {
 		os.Exit(1)
 	}
 
+	//Передача данных на js
 	jsonData, err := json.Marshal(response.Data)
-
 	if err != nil {
-		fmt.Println("Ошибка при конвертации данных в формат json")
+		log.Println("Файл: handlers.go. Ошибка при конвертации данных в формат json")
 		http.Error(res, err.Error(), http.StatusInternalServerError)
 		return
 	}
 	_, err = res.Write(jsonData)
 	if err != nil {
-		fmt.Println("Ошибка при отправке json файлов")
+		log.Println("Файл: handlers.go. Ошибка при отправке json файлов")
 		http.Error(res, err.Error(), http.StatusInternalServerError)
 		return
 	}
+
+	// POST-запрос к setStat.php
+	SendPOSTRequest(postData)
 }
 
 // indexHandler() Обрабатывает рут: /
@@ -88,6 +98,7 @@ func IndexHandler(res http.ResponseWriter, req *http.Request) {
 	htmlPath := path.Join("dist", "index.html")
 	tpl, err := template.ParseFiles(htmlPath)
 	if err != nil {
+		log.Println("Файл: handlers.go. Ошибка при считывании файла index.html")
 		http.Error(res, err.Error(), http.StatusInternalServerError)
 		return
 	}

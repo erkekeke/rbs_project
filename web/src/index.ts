@@ -1,9 +1,9 @@
-import { getData } from "./getData";
+import { getDir } from "./getDir";
 
 var path = '/home/';
 
 export const main = function main(sortType: string = 'asc'): void {
-  getData(sortType, path);
+  getDir(sortType, path);
 };
 
 document.addEventListener("DOMContentLoaded", function() {

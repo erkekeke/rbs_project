@@ -2,10 +2,12 @@ package backend
 
 // Структура для файлов в родительской директории
 type File struct {
-	FileName  string `json:"fileName"`
-	FileSize  int64  `json:"fileSize"`
-	FileType  string `json:"fileType"`
-	DeepIndex int    `json:"deepIndex"`
+	FileName    string  `json:"fileName"`
+	FileSize    int64   `json:"fileSize"`
+	FileType    string  `json:"fileType"`
+	DeepIndex   int     `json:"deepIndex"`
+	ElapsedTime float64 `json:"elapsedTime"`
+	CurrentDate string  `json:"currentDate"`
 }
 type FilesArray []File
 
